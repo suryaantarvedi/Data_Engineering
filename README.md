@@ -1,6 +1,7 @@
 # **Data_Engineering Projects**
 
 **🏨 Hotel Booking Data Pipeline Using Snowflake**
+
 A modern data warehousing project built on hotel booking transactions, showcasing the Medallion Architecture (Bronze, Silver, Gold layers) for structured ingestion, cleaning, transformation, and analytics.
 
 It includes:
