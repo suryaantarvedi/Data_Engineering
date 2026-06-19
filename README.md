@@ -14,7 +14,9 @@ It includes:
 
 🔍 **Visuals & Charts:** 
 Line charts for revenue per month and bookings per month.
+
 Bar charts for top cities by revenue, bookings by type, and bookings by status.
+
 KPI cards for total revenue, total bookings, and unique cities
 
 ❄️ **Dashboard Adaptation:** Since Snowflake’s dashboard feature was disabled, the cleaned dataset was exported and converted into visualizations using Claude AI, ensuring SQL outputs were still transformed into recruiter‑ready business insights
