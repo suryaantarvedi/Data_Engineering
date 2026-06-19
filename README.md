@@ -13,6 +13,7 @@ It includes:
 📊 **Business Analysis (Gold Layer):** SQL aggregations for monthly revenue, bookings, city‑level performance, and KPIs
 
 🔍 **Visuals & Charts:** 
+
 Line charts for revenue per month and bookings per month.
 
 Bar charts for top cities by revenue, bookings by type, and bookings by status.
