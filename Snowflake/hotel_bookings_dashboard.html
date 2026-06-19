@@ -1,0 +1,151 @@
+<div style="display:flex;flex-direction:column;gap:0">
+
+<h2 class="sr-only">Hotel booking dashboard: KPIs, monthly revenue, monthly bookings, top cities, bookings by room type and status</h2>
+
+<div style="background:linear-gradient(135deg,#0F3D63 0%,#185FA5 100%);border-radius:var(--border-radius-lg);padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between">
+  <div>
+    <p style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.65);margin:0 0 6px">Operations Report</p>
+    <p style="font-size:24px;font-weight:700;letter-spacing:-0.2px;margin:0 0 4px;color:#fff">Hotel Booking Dashboard</p>
+    <p style="font-size:12.5px;color:rgba(255,255,255,0.75);margin:0">Booking activity and revenue · Nov 2024 – May 2026</p>
+  </div>
+  <div style="width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h0"/><path d="M9 13h0"/><path d="M9 17h0"/></svg>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:28px">
+  <div style="padding:14px 16px;border-radius:var(--border-radius-lg);background:rgba(24,95,165,0.08);border-left:3px solid #185FA5">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 6px">Total revenue</p>
+    <p style="font-size:20px;font-weight:600;margin:0;color:#185FA5">$161,164</p>
+  </div>
+  <div style="padding:14px 16px;border-radius:var(--border-radius-lg);background:rgba(68,68,65,0.06);border-left:3px solid #444441">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 6px">Avg booking value</p>
+    <p style="font-size:20px;font-weight:600;margin:0">$245</p>
+  </div>
+  <div style="padding:14px 16px;border-radius:var(--border-radius-lg);background:rgba(46,139,87,0.08);border-left:3px solid #2E8B57">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 6px">Confirmed rate</p>
+    <p style="font-size:20px;font-weight:600;margin:0;color:#2E8B57">42.6%</p>
+  </div>
+  <div style="padding:14px 16px;border-radius:var(--border-radius-lg);background:rgba(193,68,53,0.08);border-left:3px solid #C14435">
+    <p style="font-size:12px;color:var(--color-text-secondary);margin:0 0 6px">Cancelled + no-show</p>
+    <p style="font-size:20px;font-weight:600;margin:0;color:#C14435">57.4%</p>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+  <div>
+    <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 0 8px">Monthly revenue</p>
+    <div style="position:relative;width:100%;height:160px">
+      <canvas id="revChart" role="img" aria-label="Line chart of monthly revenue from November 2024 to May 2026, ranging from about 1,400 to 13,700 dollars">Monthly revenue, USD, Nov 2024 to May 2026.</canvas>
+    </div>
+  </div>
+  <div>
+    <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 0 8px">Monthly bookings</p>
+    <div style="position:relative;width:100%;height:160px">
+      <canvas id="bookChart" role="img" aria-label="Line chart of monthly booking counts from November 2024 to May 2026, ranging from 14 to 107 bookings per month">Monthly bookings count, Nov 2024 to May 2026.</canvas>
+    </div>
+  </div>
+</div>
+
+<p style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 0 8px">Top 10 cities by revenue</p>
+<div style="position:relative;width:100%;height:320px;margin-bottom:28px">
+  <canvas id="cityChart" role="img" aria-label="Horizontal bar chart of top 10 cities by revenue, led by East Michael at 963 dollars">Top cities by revenue.</canvas>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+  <div>
+    <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 0 8px">Bookings by room type</p>
+    <div style="position:relative;width:100%;height:180px">
+      <canvas id="typeChart" role="img" aria-label="Bar chart of bookings by room type: Deluxe 523, Suite 515, Standard 505">Bookings by room type.</canvas>
+    </div>
+  </div>
+  <div>
+    <p style="font-size:13px;font-weight:500;color:var(--color-text-secondary);margin:0 0 8px">Bookings by status</p>
+    <div style="position:relative;width:100%;height:180px">
+      <canvas id="statusChart" role="img" aria-label="Bar chart of bookings by status: Confirmed 657, Cancelled 464, No-Show 422">Bookings by status.</canvas>
+    </div>
+  </div>
+</div>
+
+<p style="font-size:11px;color:var(--color-text-tertiary);margin-top:20px;border-top:0.5px solid var(--color-border-tertiary);padding-top:12px">Source: 1,543 cleaned records (1,729 raw, 186 removed for duplicate IDs, missing fields, or invalid amounts). Revenue normalized to USD from mixed-currency source data. Revenue and top-cities figures reflect confirmed bookings only; booking counts reflect all statuses.</p>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const months = ["2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05"];
+const revenue = [1394.65,11599.33,8848.78,8594.33,11299.59,8661.14,9231.69,8424.35,9783.11,7646.6,7114.7,13668.84,6580.03,6802.62,8612.6,8616.69,7586.93,8458.07,8239.52];
+const bookings = [14,87,83,88,94,95,107,81,90,82,88,94,81,79,89,68,75,77,71];
+const cities = ["East Michael","Davisport","Port James","West Lisa","Douglasfort","Byrdview","Richardsland","Port Carl","West Amanda","East Andreachester"];
+const cityRev = [963.39,821.51,725.32,691.64,689.19,647.5,646.92,646.16,637.62,634.53];
+const roomTypes = ["Deluxe","Suite","Standard"];
+const roomCounts = [523,515,505];
+const statuses = ["Confirmed","Cancelled","No-Show"];
+const statusCounts = [657,464,422];
+
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const gridColor = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const tickColor = isDark ? '#B4B2A9' : '#5F5E5A';
+const navy = '#185FA5';
+const slate = '#444441';
+
+new Chart(document.getElementById('revChart'), {
+  type: 'line',
+  data: { labels: months, datasets: [{ label: 'Revenue (USD)', data: revenue, borderColor: navy, backgroundColor: 'rgba(24,95,165,0.08)', fill: true, tension: 0.2, pointRadius: 2, borderWidth: 1.5 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: tickColor, maxRotation: 45, autoSkip: true, font: { size: 10 } }, grid: { display: false } },
+      y: { ticks: { color: tickColor, font: { size: 10 }, callback: v => '$' + v.toLocaleString() }, grid: { color: gridColor } }
+    }
+  }
+});
+
+new Chart(document.getElementById('bookChart'), {
+  type: 'line',
+  data: { labels: months, datasets: [{ label: 'Bookings', data: bookings, borderColor: slate, backgroundColor: 'rgba(68,68,65,0.06)', fill: true, tension: 0.2, pointRadius: 2, borderWidth: 1.5 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: tickColor, maxRotation: 45, autoSkip: true, font: { size: 10 } }, grid: { display: false } },
+      y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor } }
+    }
+  }
+});
+
+new Chart(document.getElementById('cityChart'), {
+  type: 'bar',
+  data: { labels: cities, datasets: [{ label: 'Revenue (USD)', data: cityRev, backgroundColor: navy, borderRadius: 2, barThickness: 16 }] },
+  options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: tickColor, font: { size: 10 }, callback: v => '$' + v.toLocaleString() }, grid: { color: gridColor } },
+      y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { display: false } }
+    }
+  }
+});
+
+new Chart(document.getElementById('typeChart'), {
+  type: 'bar',
+  data: { labels: roomTypes, datasets: [{ label: 'Bookings', data: roomCounts, backgroundColor: navy, borderRadius: 2 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: tickColor, font: { size: 10 } }, grid: { display: false } },
+      y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor } }
+    }
+  }
+});
+
+new Chart(document.getElementById('statusChart'), {
+  type: 'bar',
+  data: { labels: statuses, datasets: [{ label: 'Bookings', data: statusCounts, backgroundColor: slate, borderRadius: 2 }] },
+  options: { responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { ticks: { color: tickColor, font: { size: 10 } }, grid: { display: false } },
+      y: { ticks: { color: tickColor, font: { size: 10 } }, grid: { color: gridColor } }
+    }
+  }
+});
+</script>
